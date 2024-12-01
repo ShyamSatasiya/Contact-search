@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Box, Typography } from "@mui/material";
+import ContactTable from "./components/ContactTable";
+import SelectedContacts from "./components/SelectedContacts";
+import contactsData from "./data.json"; // Import data from JSON file
 
-function App() {
+const App = () => {
+  const [contacts] = useState(contactsData); // Load contacts from JSON
+  const [selectedContacts, setSelectedContacts] = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ padding: 2 }}>
+      <Typography variant="h4" gutterBottom>
+        Contact Search
+      </Typography>
+
+      {/* Contact Table */}
+      <ContactTable
+        contacts={contacts}
+        selectedContacts={selectedContacts}
+        setSelectedContacts={setSelectedContacts}
+      />
+
+      {/* Selected Contacts */}
+      {selectedContacts && (
+        <SelectedContacts
+          selectedContact={selectedContacts}
+          setSelectedContacts={setSelectedContacts}
+        />
+      )}
+    </Box>
   );
-}
+};
 
 export default App;

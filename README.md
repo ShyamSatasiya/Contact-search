@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Contact Search Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a contact search application that allows you to search, filter, and select contacts from a list. It provides the following features:
 
-## Available Scripts
+- **Search and Filter**: Allows users to search contacts by first name, last name, date of birth, email, phone, address, city, state, and zip code.
+- **Single Contact Selection**: Enables the selection of a single contact from the search results and automatically updates the contact's details in the record below.
+- **Pagination**: Displays search results in a paginated table format.
 
-In the project directory, you can run:
+## Project Structure
 
-### `npm start`
+```
+src/
+├── components/
+    ├── SelectedContacts.js  # Displays the Selected Contact
+│   ├── ContactTable.js      # Displays the table of contacts and handles filtering
+│   ├── SearchFilters.js     # Provides the search and filter form for users
+├── App.js                   # Main component that ties everything together
+├── index.js                 # Entry point of the application
+├── styles.css               # Global styles
+├── README.md                # This file
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Search Filters
 
-### `npm test`
+- **First Name**: Filters contacts by first name.
+- **Last Name**: Filters contacts by last name.
+- **Date of Birth**: Filters contacts by date of birth.
+- **Email**: Filters contacts by email address.
+- **Phone**: Filters contacts by phone number.
+- **Address**: Filters contacts by address.
+- **City**: Filters contacts by city.
+- **State**: Filters contacts by state.
+- **Zip Code**: Filters contacts by zip code.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Pagination
 
-### `npm run build`
+- The search results are paginated with a maximum of 5 contacts per page.
+- Users can navigate between pages using pagination controls.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Contact Selection
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Only one contact can be selected at a time.
+- When a contact is selected, its data is automatically updated in the record below, which includes:
+    - Name
+    - Email
+    - Phone
+    - Address (if applicable)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Validation
 
-### `npm run eject`
+- **Email Validation**: Ensures the email is in a valid format.
+- **Phone Validation**: Ensures the phone number is of 10 digit.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Setup and Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Make sure you have the following installed on your system:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Node.js (LTS version recommended)
+- npm (Node Package Manager)
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### How to Use the Contact Search Application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Search Contacts**: Use the filter inputs to enter values such as first name, last name, or email. Click the Search button to apply the filters.
+2. **Select a Contact**: Click on the checkbox next to a contact’s name to select it. The contact’s details (name, email, phone, address) will be displayed in the section below the table.
+3. **Navigate Pages**: Use the pagination controls to view more contacts if there are multiple pages of results.
 
-### Code Splitting
+## Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `@mui/material`: Material-UI components for the UI design.
+- `@mui/x-date-pickers`: Date pickers for filtering by date of birth.
+- `react`: React library for building the user interface.
+- `react-dom`: React DOM for rendering components in the browser.
